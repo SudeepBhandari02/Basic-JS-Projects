@@ -15,8 +15,27 @@ function addTask() {
     container.appendChild(li);
     inputBox.value="";
     }
+    saveData();
 }
 
 
-container.addEventListener(click,(e)=>{
+container.addEventListener("click",(e)=>{
+    if(e.target.tagName === "LI"){
+        e.target.classList.toggle("checked");
+        saveData();
+    }
+    else if(e.target.tagName === "SPAN"){
+        e.target.parentElement.remove();
+        saveData();
+    }
 },false)
+
+function saveData(){
+    localStorage.setItem("data",container.innerHTML);
+}
+
+function showData(){
+    container.innerHTML = localStorage.getItem("data");
+}
+
+showData();

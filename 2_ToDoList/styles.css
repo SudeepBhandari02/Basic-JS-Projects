@@ -1,56 +1,105 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-.container{
-    height: 100vh;
-    background: rgb(60,224,212);
-    background: linear-gradient(112deg, rgba(60,224,212,1) 31%, rgba(45,122,253,0.9663515064228817) 99%);
+.container {
+  height: 100vh;
+  background: rgb(60, 224, 212);
+  background: linear-gradient(
+    112deg,
+    rgba(60, 224, 212, 1) 31%,
+    rgba(45, 122, 253, 0.9663515064228817) 99%
+  );
 }
-.todo-card{
-    padding:20px;
-    background-color: rgb(255, 255, 255);
-    width: 40%;
-    position: relative;
-    top: 25%;
-    left: 30%;
-    border-radius: 15px;
+.todo-card {
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  width: 40%;
+  position: relative;
+  top: 25%;
+  left: 30%;
+  border-radius: 15px;
 }
-.todo-card h2{
-    font-size: 2rem;
-    
-    margin-left: 5%;
-    color: rgb(219, 156, 63);
+.todo-card h2 {
+  font-size: 2rem;
+
+  margin-left: 5%;
+  color: rgb(219, 156, 63);
 }
-.todo-card h2 img{
-    width: 50px;
+.todo-card h2 img {
+  width: 50px;
 }
-.work-input{
-    margin: 20px 30px 10px;
-    height: 40px;
-    background-color: #edeef0;
-    border-radius: 30px;
-    display: flex;
-    justify-content: end;
+.work-input {
+  margin: 20px 30px 10px;
+  height: 40px;
+  background-color: #edeef0;
+  border-radius: 30px;
+  display: flex;
+  justify-content: end;
 }
-.work-input input{
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 10px;
-    font-size: 1rem;
-    font-weight: 14px;
-    margin-left: 15px;
+.work-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 14px;
+  margin-left: 15px;
 }
-.work-input button{
-    height: 40px;
-    width: 25%;
-    border: none;
-    border-radius: 30px;
-    background-color: rgb(219, 156, 63);
-    color: white;
-    cursor: pointer;
+.work-input button {
+  height: 40px;
+  width: 25%;
+  border: none;
+  border-radius: 30px;
+  background-color: rgb(219, 156, 63);
+  color: white;
+  cursor: pointer;
+}
+ul li {
+  list-style: none;
+  font-size: 17px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+ul li::before{
+    content: " ";
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius: 50%;
+    height: 28px;
+    width: 28px;
+    background-position: center;
+}
+ul li.checked{
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before{
+    background-image: url(images/checked.png);
+}
+
+ul li span{
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+ul li span:hover{
+  background: #edeef0;
 }

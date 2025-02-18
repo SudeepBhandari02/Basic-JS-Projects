@@ -14,14 +14,12 @@
         <div class="todo-card">
             <h2>My To-Do List <img src="images/icon.png" alt=""></h2>
             <div class="work-input">
-                <input type="text" name="work" id="input">
-                <button>Add</button>
+                <input type="text" name="work" id="input-box">
+                <button id="button" onclick="addTask()">Add</button>
             </div>
             <div class="tasklist">
-                <ul>
-                    <li class="list-item">hello 1</li>
-                    <li>hello 2</li>
-                    <li>hello 3</li>
+                <ul id="list-container">
+                    <li class="checked">hello 1</li>
                 </ul>
             </div>
         </div>

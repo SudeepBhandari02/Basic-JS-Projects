@@ -17,7 +17,7 @@ body{
     background-color: #FBFBFB;
     border-radius: 10px;
     width: 600px;
-    height: 400px;
+    height: auto;
     box-shadow: 10px 10px 28px -4px rgba(0,0,0,0.71);
 -webkit-box-shadow: 10px 10px 28px -4px rgba(0,0,0,0.71);
 -moz-box-shadow: 10px 10px 28px -4px rgba(0,0,0,0.71);
@@ -49,12 +49,12 @@ body{
 
 
 
-.ans-section button{
+.ans-section .btn{
     margin-bottom: 10px;
-    height: 40px;
+    min-height: 40px ;
     text-align: left;
     padding-left: 10px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     background: #fff;
     color: #383838;
     font-weight: 500;

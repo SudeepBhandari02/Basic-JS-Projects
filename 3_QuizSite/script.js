@@ -212,8 +212,9 @@ const questions = [
 ];
 
 const questionElement = document.getElementById("question");
-const answerButtons = document.getElementByClass("ans-section");
-const nextButton = document.getElementById("next-btn");
+const answerButtons = document.getElementsByClassName("ans-section");
+const nextButton = document.getElementById("nxt-btn");
+console.log(nextButton);
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -221,12 +222,54 @@ let score = 0;
 function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
-    //showQuestion();
+    nextButton.innerHTML="Next";
+    showQuestion();
 }
 
 function showQuestion(){
-    //resetState();
+    resetState();
     let questionNo=currentQuestionIndex+1;
-    
+    let currentQuestion = questions[currentQuestionIndex];
+    questionElement.innerHTML=questionNo+". "+currentQuestion.question;
 
+    currentQuestion.answers.forEach(answer => {
+        buttonElement=document.createElement("button");
+        buttonElement.innerHTML=answer.text;
+        buttonElement.classList.add("btn");
+        answerButtons[0].appendChild(buttonElement);
+        if(answer.correct){
+            buttonElement.dataset.correct=answer.correct;
+        }
+        buttonElement.addEventListener("click",selectAnswer);
+    });  
 }
+
+function resetState(){
+    nextButton.style.display="none";
+    while(answerButtons[0].firstChild){
+        answerButtons[0].removeChild(answerButtons[0].firstChild)
+    }
+}
+
+function selectAnswer(e){
+    selectedBtn=e.target;
+    isTrue=(selectedBtn.dataset.correct==="true");
+    if(isTrue){
+        selectedBtn.classList.add("correct");
+        console.log("correct");
+    }else{
+        selectedBtn.classList.add("wrong");
+        console.log("wrong");
+    }
+    console.log(typeof(answerButtons[0].children));
+    Array.from(answerButtons[0].children).forEach(button =>{
+        if(button.dataset.correct==="true"){
+            button.classList.add("correct");
+        }
+        button.disabled="true";
+    })
+    nextButton.style.display="block";
+}
+
+
+startQuiz();

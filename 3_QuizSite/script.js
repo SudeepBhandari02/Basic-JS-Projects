@@ -256,20 +256,23 @@ function selectAnswer(e){
     isTrue=(selectedBtn.dataset.correct==="true");
     if(isTrue){
         selectedBtn.classList.add("correct");
-        console.log("correct");
+        score++;
     }else{
         selectedBtn.classList.add("wrong");
-        console.log("wrong");
     }
-    console.log(typeof(answerButtons[0].children));
+    
     Array.from(answerButtons[0].children).forEach(button =>{
         if(button.dataset.correct==="true"){
             button.classList.add("correct");
         }
-        button.disabled="true";
+        button.style.cursor="not-allowed";
+        button.disabled=true;
     })
     nextButton.style.display="block";
+
 }
+
+
 
 
 startQuiz();

@@ -269,10 +269,30 @@ function selectAnswer(e){
         button.disabled=true;
     })
     nextButton.style.display="block";
-
 }
 
+function showScore(){
+    resetState();
+    questionElement.innerText=`You scored ${score} out of ${questions.length}`;
+    nextButton.innerText="Play again";
+    nextButton.style.display="block";
+}
 
+function handleButton(){
+    currentQuestionIndex++;
+    if(currentQuestionIndex<questions.length){
+        showQuestion();
+    }else{
+        showScore();
+    }
+}
 
+nextButton.addEventListener("click",()=>{
+    if(currentQuestionIndex<questions.length){
+        handleButton();
+    }else{
+        startQuiz();
+    }
+})
 
 startQuiz();

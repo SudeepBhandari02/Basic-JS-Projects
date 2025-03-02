@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password generator</title>
+    <link rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Password <br> <span> Generator </span> </h1>
+            <div class="display">
+                <input type="text" name="password-holder" id="password" placeholder="Password">
+                <button onclick="copyToClipboard()"><img src="images/copy-img.webp" alt="copy"></button>
+            </div>
+            <div class="type-select">
+                <div class="range-select">
+                    <input type="range" name="range" min="4" max="16" id="range" onchange="rangeHandler()">
+                    <label for="input" id="range-label" >Password Length : 8 </label>
+                </div>
+                <div class="char-num-select">
+                    <input type="checkbox" name="number-check" id="num-check" onchange="checkboxHandler()">
+                    <label for="numbers">Numbers</label>
+                    <input type="checkbox" name="special-char-check"  id="sp-char-check" onchange="checkboxHandler()">
+                    <label for="numbers">Special-characters</label>
+                </div>
+            </div>
+            <button id="generate-btn" onclick="generatePassword()">Generate Password </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
